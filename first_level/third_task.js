@@ -91,8 +91,6 @@ function isValid(array) {
     for (let i = 0; i < array.length; i++) {
         if (parseInt(array[i])) {
             v = true;
-        } else {
-            v = false;
         }
     }
     return v;
@@ -115,6 +113,10 @@ function getPriority(s) {
     }
 }
 
+function calculating_2(string) {
+    return eval(string);
+}
+
 document.querySelector('#submit').onclick = () => {
     let string = document.querySelector('#inputText').value;
     let arr = string.replace(/\s/g, '').split(/([0-9]+|[*+-\/()])/);
@@ -128,3 +130,20 @@ document.querySelector('#submit').onclick = () => {
         document.querySelector('#resultNumber').innerHTML = errMessage;
     }
 };
+
+// Second solution for this task
+
+/*
+document.querySelector('#submit').onclick = () => {
+    let string = document.querySelector('#inputText').value;
+    let arr = string.replace(/\s/g, '').split(/([0-9]+|[*+-\/()])/);
+    if (isValid(arr)) {
+        document.querySelector('#expression').innerHTML = string;
+        document.querySelector('#resultNumber').innerHTML = calculating_2(string);
+    } else {
+        let errMessage = "Invalid input!";
+        document.querySelector('#expression').innerHTML = string;
+        document.querySelector('#resultNumber').innerHTML = errMessage;
+    }
+};
+*/
